@@ -11,13 +11,17 @@ Frontend
 
 Backend
 * [ ] Хеширование паролей
+* [ ] Изменение структуры проекта
+* [ ] Переход на Jango
 
 Общее
 * [ ] Figma
   * [ ] Чат
   * [ ] Профиль
+  * [ ] Создание задач
+  * [ ] Редактирование задач
 
 
 ***
-Required libraries:
->Flask, Flask-WTF, Flask-SQLAlchemy, Flask-Login
+Install required libraries:
+>pip install Flask && pip install Flask-WTF && pip install Flask-SQLAlchemy && pip install Flask-Login
