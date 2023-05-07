@@ -10,6 +10,8 @@ Frontend
 * [ ] Подтверждение выхода из аккаунта
 * [X] Исправить отображение навигационного меню
 * [ ] Дизайн дитализации задачи
+* [ ] Чат
+* [ ] Профиль
 
 Backend
 * [ ] Хеширование паролей
@@ -17,13 +19,9 @@ Backend
 * [ ] Переход на Jango
 
 Общее
-* [ ] Figma
-  * [ ] Чат
-  * [ ] Профиль
+* [ ] Figma
   * [ ] Создание задач
-  * [ ] Редактирование задач
-
-
+  * [ ] Редактирование и просмотр задач
 ***
 Install required libraries:
 >pip install Flask && pip install Flask-WTF && pip install Flask-SQLAlchemy && pip install Flask-Login
