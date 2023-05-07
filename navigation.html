@@ -9,8 +9,8 @@
     <li>
         <form action="/" method="GET">
                 <button type="submit">
-                    <img src="/static/images/calendar.png" alt="tasks">
-                    Главное меню
+                    <img src="/static/images/main.png" alt="tasks">
+                    Задачи
                 </button>
         </form>
     </li>
@@ -18,7 +18,7 @@
         <form action="/add_task" method="GET">
                 <button type="submit">
                     <img src="/static/images/tasks.png" alt="tasks">
-                    Добавление задач
+                    Добавить задачу
                 </button>
         </form>
     </li>
@@ -39,10 +39,10 @@
         </form>
     </li>
     <li>
-        <form action="/logout" method="GET">
+        <form action="/profile" method="GET">
                 <button type="submit">
-                    <img src="/static/images/profile.png" alt="tasks">
-                    Выйти
+                    <img src="/static/images/profile.png" alt="profile">
+                    {{ login }}
                 </button>
         </form>
     </li>
