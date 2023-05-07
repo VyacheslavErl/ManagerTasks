@@ -13,6 +13,7 @@ Frontend
 * [ ] Чат
 * [ ] Сотрудники 
 * [ ] Профиль
+* [ ] Оптимизация CSS
 
 Backend
 * [ ] Хеширование паролей
@@ -22,10 +23,13 @@ Backend
 * [ ] Сотрудники
 * [ ] Работа с изображениями
 
-Figma
+Figma
+
 * [X] Создание задач
 * [ ] Редактирование задачи
 * [ ] Просмотр задачи
+* [ ] Профиль
+* [ ] Авторизация/Регистрация
 ***
 Install required libraries:
 >pip install Flask && pip install Flask-WTF && pip install Flask-SQLAlchemy && pip install Flask-Login
