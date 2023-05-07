@@ -6,8 +6,7 @@
 
 {% block content %}
 <div class="task_detail">
-  <h1>Задача</h1>
-  <p> {{ task["name"] }} </p>
+  <h1>{{ task["name"] }}</h1>
   <p> {{ task["text"] }} </p>
   {% if date.today() > task["date"] %}
     <p>время вышло (нужно было сделать до {{ task["date"] }})</p>
