@@ -1,0 +1,53 @@
+{% block content %}
+<ul class="navbar">
+    <li class="app_title">
+        <div class="circle">
+            <img src="/static/images/profile.png" alt="profile">
+        </div>
+        Task Manager
+    </li>
+    <li>
+        <form action="/" method="GET">
+                <button type="submit">
+                    <img src="/static/images/main.png" alt="tasks">
+                    Задачи
+                </button>
+        </form>
+    </li>
+    <li>
+        <form action="/add_task" method="GET">
+                <button type="submit">
+                    <img src="/static/images/tasks.png" alt="tasks">
+                    Добавить задачу
+                </button>
+        </form>
+    </li>
+    <li>
+        <form action="/" method="GET">
+                <button type="submit">
+                    <img src="/static/images/chat.png" alt="tasks">
+                    Чат
+                </button>
+        </form>
+    </li>
+    <li>
+        <form action="/" method="GET">
+                <button type="submit">
+                    <img src="/static/images/workers.png" alt="tasks">
+                    Соотрудники
+                </button>
+        </form>
+    </li>
+    <li>
+        <form action="/profile" method="GET">
+                <button type="submit">
+                    <img src="/static/images/profile.png" alt="profile">
+                    {{ login }}
+                </button>
+        </form>
+    </li>
+</ul>
+
+<script src="navigation.js"></script>
+
+{% endblock %}
