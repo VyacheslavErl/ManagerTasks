@@ -202,3 +202,8 @@ input {
     margin-top: 10px;
     color: #8a272a;
 }
+
+button.active {
+    color: #4654eb;
+    background-color: #F3F3FB;
+}
