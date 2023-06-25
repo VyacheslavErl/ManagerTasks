@@ -1,48 +1,68 @@
 {% block content %}
-<ul class="navbar">
-    <li class="app_title">
+<ul id="navbar">
+    <li class="app-title">
         <div class="circle">
-            <img src="static/images/profile.png" alt="profile">
+            <img src="/static/images/logo.png" class="nav-icon" alt="profile">
         </div>
-        Task Manager
+        Manager Tasks
     </li>
     <li>
-        <form action="/add_task" method="GET">
-                <button type="submit">
-                    <img src="static/images/tasks.png" alt="tasks">
-                    Добавление задач
+        <form action="/" method="GET">
+                <button
+                    {% if request.path == '/' or '/task/' in request.path %}
+                        class="active"
+                    {% endif %}
+                    type="submit">
+                    <img src="/static/images/main.png" class="nav-icon" alt="tasks">
+                    Задачи
                 </button>
         </form>
     </li>
     <li>
-        <form action="/" method="GET">
-                <button type="submit">
-                    <img src="static/images/calendar.png" alt="tasks">
-                    Главное меню
+        <form action="/add-task" method="GET">
+                <button
+                    {% if request.path == '/add-task' %}
+                        class="active"
+                    {% endif %}
+                     type="submit">
+                    <img src="/static/images/tasks.png" class="nav-icon" alt="tasks">
+                    Добавить задачу
                 </button>
         </form>
     </li>
     <li>
-        <form action="/" method="GET">
-                <button type="submit">
-                    <img src="static/images/chat.png" alt="tasks">
+        <form action="/chat" method="GET">
+                <button
+                    {% if request.path == '/chat' %}
+                        class="active"
+                    {% endif %}
+                    type="submit">
+                    <img src="/static/images/chat.png" class="nav-icon" alt="tasks">
                     Чат
                 </button>
         </form>
     </li>
     <li>
-        <form action="/" method="GET">
-                <button type="submit">
-                    <img src="static/images/workers.png" alt="tasks">
+        <form action="/workers" method="GET">
+                <button
+                    {% if request.path == '/workers' %}
+                        class=""
+                    {% endif %}
+                    type="submit">
+                    <img src="/static/images/workers.png" class="nav-icon" alt="tasks">
                     Соотрудники
                 </button>
         </form>
     </li>
     <li>
-        <form action="/logout" method="GET">
-                <button type="submit">
-                    <img src="static/images/profile.png" alt="tasks">
-                    Выйти
+        <form action="/profile" method="GET">
+                <button
+                    {% if request.path == '/profile' %}
+                        class="active"
+                    {% endif %}
+                    type="submit">
+                    <img src="/static/images/profile.png" class="nav-icon" alt="profile">
+                    {{ login }}
                 </button>
         </form>
     </li>
