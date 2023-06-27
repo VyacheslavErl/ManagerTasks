@@ -16,10 +16,11 @@ Frontend
 * [ ] Чат
 * [ ] Сотрудники 
 * [ ] Профиль
-* [ ] Оптимизация CSS
-* [ ] Логотип
+* [X] Оптимизация CSS
+* [X] Логотип
 * [ ] Поиск задач
 * [ ] Темы
+* [ ] Организации
 
 Backend
 * [ ] Хеширование паролей
@@ -37,6 +38,7 @@ Figma
 * [X] Профиль
 * [ ] Редактирование профиля
 * [X] Авторизация/Регистрация
+* [ ] Окно организаций
 ***
 Install required libraries:
 >pip install Flask && pip install Flask-WTF && pip install Flask-SQLAlchemy && pip install Flask-Login
