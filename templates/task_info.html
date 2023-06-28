@@ -7,13 +7,11 @@
 {% block content %}
 <div class="task_detail">
   <h1>Задача</h1>
-  <p> {{ task["name"] }} </p>
-  <p> {{ task["text"] }} </p>
-  {% if date.today() > task["date"] %}
-    <p>время вышло (нужно было сделать до {{ task["date"] }})</p>
-  {% else %}
-    <p> Сделать до {{ task["date"] }} </p>
+  {% if not task.image == 'no_image.png' %}
+    <img src="/media/{{ task.image }}">
   {% endif %}
-  <a href="/task/{{ task.id }}/del">Удалить</a>
+  <p> {{ task.name }} </p>
+  <p> {{ task.text }} </p>
+  <a href="/tasks/{{ task.id }}/del">Удалить</a>
 </div>
 {% endblock %}

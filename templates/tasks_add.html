@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Title
+{% endblock %}
+
+{% block content %}
+<div class="add_task">
+  <h1>Добавить задачу</h1>
+   <form method="POST", enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="task_submit">
+           <label>
+              {{ form.name.label }}
+           </label>
+         {{ form.name }}
+         {% for error in form.name.errors %}
+              <div class="task_alert" role="alert">
+                <span>{{ error }}</span>
+              </div>
+         {% endfor %}
+      </div>
+
+       <div class="task_submit">
+           <label>
+              {{ form.text.label }}
+           </label>
+         {{ form.text }}
+         {% for error in form.text.errors %}
+              <div class="task_alert" role="alert">
+                <span>{{ error }}</span>
+              </div>
+         {% endfor %}
+      </div>
+
+      <div class="task_submit">
+           <label>
+              {{ form.do_before.label }}
+           </label>
+         {{ form.do_before }}
+         {% for error in form.do_before.errors %}
+              <div class="task_alert" role="alert">
+                <span>{{ error }}</span>
+              </div>
+         {% endfor %}
+      </div>
+
+      <div class="task_submit">
+           <label>
+              {{ form.image.label }}
+           </label>
+         {{ form.image }}
+         {% for error in form.image.errors %}
+              <div class="task_alert" role="alert">
+                <span>{{ error }}</span>
+              </div>
+         {% endfor %}
+      </div>
+    <button class="btn btn-success" type="submit">Продолжить</button>
+   </form>
+</div>
+{% endblock %}
