@@ -54,17 +54,32 @@
                 </button>
         </form>
     </li>
-    <li>
-        <form action="/profile" method="GET">
-                <button
-                    {% if request.path == '/profile' %}
-                        class="active"
-                    {% endif %}
-                    type="submit">
-                    <img src="/static/images/profile.png" class="nav-icon" alt="profile">
-                    {{ login }}
-                </button>
-        </form>
-    </li>
+    {% if request.user.is_authenticated %}
+        <li>
+            <form action="/user/profile" method="GET">
+                    <button
+                        {% if request.path == '/profile' %}
+                            class="active"
+                        {% endif %}
+                        type="submit">
+                        <img src="/media/{{ user.image }}" class="nav-icon" alt="profile">
+                        Профиль
+                    </button>
+            </form>
+        </li>
+    {% else %}
+        <li>
+            <form action="/user/login" method="GET">
+                    <button
+                        {% if request.path == '/profile' %}
+                            class="active"
+                        {% endif %}
+                        type="submit">
+                        <img src="/static/images/profile.png" class="nav-icon" alt="profile">
+                        Вход
+                    </button>
+            </form>
+        </li>
+    {% endif %}
 </ul>
 {% endblock %}

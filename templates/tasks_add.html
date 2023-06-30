@@ -15,11 +15,7 @@
               {{ form.name.label }}
            </label>
          {{ form.name }}
-         {% for error in form.name.errors %}
-              <div class="task_alert" role="alert">
-                <span>{{ error }}</span>
-              </div>
-         {% endfor %}
+         {{ form.name.errors }}
       </div>
 
        <div class="task_submit">
@@ -27,11 +23,7 @@
               {{ form.text.label }}
            </label>
          {{ form.text }}
-         {% for error in form.text.errors %}
-              <div class="task_alert" role="alert">
-                <span>{{ error }}</span>
-              </div>
-         {% endfor %}
+         {{ form.text.errors }}
       </div>
 
       <div class="task_submit">
@@ -39,11 +31,7 @@
               {{ form.do_before.label }}
            </label>
          {{ form.do_before }}
-         {% for error in form.do_before.errors %}
-              <div class="task_alert" role="alert">
-                <span>{{ error }}</span>
-              </div>
-         {% endfor %}
+         {{ form.do_before.errors }}
       </div>
 
       <div class="task_submit">
@@ -51,12 +39,9 @@
               {{ form.image.label }}
            </label>
          {{ form.image }}
-         {% for error in form.image.errors %}
-              <div class="task_alert" role="alert">
-                <span>{{ error }}</span>
-              </div>
-         {% endfor %}
+         {{ form.image.errors }}
       </div>
+
     <button class="btn btn-success" type="submit">Продолжить</button>
    </form>
 </div>

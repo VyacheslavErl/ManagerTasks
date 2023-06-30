@@ -1,5 +1,7 @@
 from django.forms import ModelForm, TextInput, DateInput, FileInput
-from tasks.models import TaskModel
+
+from tasks.models import TaskModel, CommentModel
+
 
 class TaskForm(ModelForm):
     class Meta:
@@ -24,4 +26,7 @@ class TaskForm(ModelForm):
         }
 
 
-
+class CommentForm(ModelForm):
+    class Meta:
+        model = CommentModel
+        fields = ['text']

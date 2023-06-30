@@ -13,5 +13,20 @@
   <p> {{ task.name }} </p>
   <p> {{ task.text }} </p>
   <a href="/tasks/{{ task.id }}/del">Удалить</a>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="task_submit">
+      {{ form.text }}
+    </div>
+    <button type="submit">Добавить</button>
+  </form>
+  {% for comment in comments %}
+    от {{ comment.by_user.last_name }} {{ comment.by_user.first_name }}      {{ comment.date }}
+    <br>
+    {{ comment.text }}
+    <br>
+    <br>
+  {% endfor %}
+
 </div>
 {% endblock %}

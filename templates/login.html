@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+<div class="registration">
+  <h1>Вход</h1>
+  <hr>
+  <form action="" method="POST">
+    {{ form.csrf_token }}
+     {% csrf_token %}
+      <div class="form-group">
+        <label>
+          {{ form.username.label }}
+        </label>
+        {{ form.username }}
+      </div>
+
+      <div class="form-group">
+        <label>
+          {{ form.password.label }}
+        </label>
+        {{ form.password }}
+      </div>
+    <div class="task_submit">
+        <button class="btn btn-success" type="submit">Продолжить</button>
+        <a href="/user/registration">Регистрация</a>
+    </div>
+      {{ form.non_field_errors }}
+  </form>
+</div>
+{% endblock %}

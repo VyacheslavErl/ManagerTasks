@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 
-from tasks.models import TaskModel
-from tasks.forms import TaskForm
+from tasks.models import TaskModel, CommentModel
+from tasks.forms import TaskForm, CommentForm
 
-# Create your views here.
 
 def tasks_list(request):
     """ Вывод задач """
@@ -17,20 +16,34 @@ def add_task(request):
     if request.method == "POST":
         form = TaskForm(request.POST, request.FILES)
         if form.is_valid():
-            print(1)
             form.save()
             return redirect('/tasks')
-    form = TaskForm
-
+    else:
+        form = TaskForm
     return render(request, 'tasks_add.html', {'form': form})
 
 
 def task_info(request, task_id):
+    """ Информация  задачи"""
+    if request.method == "POST":
+        form = CommentForm(data=request.POST)
+        print(1)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.by_user = request.user
+            form.task_id = task_id
+            form.save()
+            return redirect('/tasks/info/' + str(task_id))
+    else:
+        form = CommentForm
+
     task = TaskModel.objects.get(id=task_id)
-    return render(request, 'task_info.html', {'task': task})
+    comments = CommentModel.objects.filter(task_id=task_id)
+    return render(request, 'task_info.html', {'task': task, 'form': form, 'comments': comments})
 
 
 def task_del(request, task_id):
+    """ удаение задач """
     try:
         TaskModel.objects.get(id=task_id).delete()
     except ObjectDoesNotExist:

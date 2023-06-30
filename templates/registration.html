@@ -1,46 +1,65 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Login
+    Registration
 {% endblock %}
 
 {% block content %}
 <div class="registration">
   <h1>Регистрация</h1>
   <hr>
-  <form action="" method="post">
+  <form action="" method="post", enctype="multipart/form-data">
     {{ form.csrf_token }}
+    {% csrf_token %}
       <div class="form-group">
         <label>
-          {{ form.login.label }}
+          {{ form.first_name.label }}
         </label>
-        {{ form.login(class="form-control") }}
+        {{ form.first_name }}
       </div>
-      {% for error in form.login.errors %}
-        <div class="task_alert" role="alert">
-          <span>{{ error }}</span>
-        </div>
-      {% endfor %}
 
       <div class="form-group">
         <label>
-          {{ form.password.label }}
+          {{ form.last_name.label }}
         </label>
-        {{ form.password(class="form-control") }}
+        {{ form.last_name }}
       </div>
-      {% for error in form.password.errors %}
-        <div class="task_alert" role="alert">
-          <span>{{ error }}</span>
-        </div>
-      {% endfor %}
-    <div class="message">
-        {% for flash in get_flashed_messages() %}
-          <span> {{ flash }} </span>
-        {% endfor %}
-    </div>
+
+      <div class="form-group">
+        <label>
+          {{ form.username.label }}
+        </label>
+        {{ form.username }}
+        {{ form.username.errors }}
+      </div>
+
+      <div class="form-group">
+        <label>
+          {{ form.password1.label }}
+        </label>
+        {{ form.password1 }}
+        {{ form.password1.errors }}
+      </div>
+
+      <div class="form-group">
+        <label>
+          {{ form.password2.label }}
+        </label>
+        {{ form.password2 }}
+        {{ form.password2.errors }}
+      </div>
+
+      <div class="form-group">
+           <label>
+              {{ form.image.label }}
+           </label>
+         {{ form.image }}
+         {{ form.image.errors }}
+      </div>
+
     <div class="task_submit">
-        {{ form.submit(class="btn btn-primary btn-lg") }}
-        <a href="/login">Войти</a>
+        <button class="btn btn-success" type="submit">Продолжить</button>
+        <a href="/user/login">Вход</a>
     </div>
   </form>
 </div>

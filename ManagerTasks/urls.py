@@ -25,7 +25,8 @@ from main.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('tasks/', include('tasks.urls'))
+    path('tasks/', include('tasks.urls')),
+    path('user/', include('users.urls'))
 ]
 
 if settings.DEBUG:
