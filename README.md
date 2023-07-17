@@ -4,18 +4,18 @@ Simple ToDo for managers
 Manager tasks helps managers improve the efficiency of their staff. 
 With Manager tasks managers can create goals and monitor their progress, and the program includes a chat and calendar function. 
 This tool is designed to optimize workflow and increase team productivity.
-Development is performed by an international team
+Development is performed by an international team.
 ***
 Frontend
-* [ ] Новый интерфейс добавления задач
+* [X] Новый интерфейс добавления задач
 * [X] Выделение текущей позиции в панели навигации
 * [ ] Изменение панели регистрации и входа
 * [ ] Запрос подтверждение выхода из аккаунта
 * [X] Исправить отображение навигационного меню
-* [ ] Дизайн детализации задачи
+* [X] Дизайн информации о задаче
 * [ ] Чат
 * [ ] Сотрудники 
-* [ ] Профиль
+* [X] Профиль
 * [X] Оптимизация CSS
 * [X] Логотип
 * [ ] Поиск задач
@@ -38,9 +38,11 @@ Figma
 * [X] Редактирование задачи
 * [X] Просмотр задачи
 * [X] Профиль
-* [ ] Редактирование профиля
+* [X] Редактирование профиля
 * [X] Авторизация/Регистрация
 * [ ] Окно организаций
+* [ ] Главная страница
+* [ ] Контакты
 ***
 Install required libraries:
 >pip install Flask && pip install Flask-WTF && pip install Flask-SQLAlchemy && pip install Flask-Login
