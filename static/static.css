@@ -11,18 +11,6 @@ body, html {
   height: 100%;
 }
 
-.popup-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: none;
-}
-.button:hover {
-  cursor: pointer;
-}
 #wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -86,13 +74,11 @@ body, html {
   position: relative;
   width: 72.72%;
   height: 84.5%;
-  min-height: 450px;
-  min-width: 430px;
   margin-left: 2.47%;
   margin-right: 3.41%;
   margin-top: 1%;
   margin-bottom: 1%;
-  padding: 36px;
+  padding: 2.8125%;
   border: none;
   border-radius: 66px;
   background: #e0e0ef;
@@ -147,6 +133,8 @@ body, html {
   position: relative;
   width: 100%;
   height: 100%;
+  width: 100%;
+  height: 100%;
 }
 #add-task .page-title {
   font-size: 2.25em;
@@ -179,8 +167,8 @@ body, html {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 3%;
-  width: 174px;
-  height: 82px;
+  width: 15%;
+  height: 10%;
 }
 #add-task .add-task-image input::-webkit-file-upload-button {
   display: none;
@@ -192,17 +180,13 @@ body, html {
   position: absolute;
   width: 12%;
   height: 6.5%;
-  min-width: 132px;
-  min-height: 52px;
   top: 0;
-  right: 25px;
+  left: 83.4%;
 }
 #add-task .add-task-submit {
-  position: absolute;
-  width: 147px;
-  height: 53px;
-  right: 10px;
-  bottom: 5%;
+  width: 12.72%;
+  height: 6.54%;
+  margin-left: 82%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -331,16 +315,7 @@ body, html {
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: flex-end;
-  align-items: flex-start;
   flex-direction: column;
-}
-
-#workers .manager-card {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-
 }
 
 #workers .worker-card {
@@ -350,86 +325,10 @@ body, html {
   justify-content: center;
   background-color: #FFFFFF;
   border-radius: 2.25rem;
-  padding: 10px;
   width: 240px;
   height: 300px;
-  margin-right: 197px;
-  min-width: 240px;
-  min-height: 300px;
-}
-
-#workers .popup {
-  display: flex;
-  padding: 24px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 430px;
-  height: 530px;
-  background-color: #FFFFFF;
-  padding: 20px;
-  transform: translate(-50%, -50%);
-  border-radius: 36px;
-  align-items: center;
-  flex-direction: column;
-}
-
-#workers .popup p {
-  position: absolute;
-  font-size: 36px;
-  right: 12px;
-  top: 6px; 
-}
-
-#workers .popup h2 {
-  width: 100%;
-  text-align: center;
-  font-size: 30px;
-  margin-top: 20px;
-  overflow-wrap: break-word;
-}
-
-#workers .info-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  bottom: 80px;
-  width: 100%;
-
-}
-
-#workers .info-item {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  width: 100%;
-}
-
-#workers .parameter-info, .parameter-name {
-  text-align: center;
-  width: 100%;
-  font-size: 24px;
-}
-
-#workers .parameter-info {
-  color: #4654EB;
-  overflow-wrap: break-word;
-}
-
-#workers .popup img{
-  width: 170px;
-  height: 170px;
-  margin-top: 30px;
-}
-
-
-#workers .worker-card:hover {
-  background-color: #eeebeb
-}
-
-#workers .worker-card:last-child {
-  margin-right: 0px;
+  padding: 10px;
+  min-width: 100px;
 }
 
 #workers .worker-card img{
@@ -439,7 +338,7 @@ body, html {
   margin-bottom: 20px;
 }
 
-#workers .worker-card h2, span {
+#workers .worker-card h2{
   width: 100%;
   height: auto;
   text-align: center;
@@ -449,53 +348,16 @@ body, html {
 }
 
 #workers .worker-card span {
+  height: auto;
+  width: 100%;
+  text-align: center;
   color: #686868;
   font-size: 1.2rem;
   margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
-#workers .workers-list {
-  display: flex;
-  padding: 30px;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-  border-radius: 18px;
-  background: #4654EB;
-}
-
-#workers .workers-cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 1174px;
-  border-radius: 2.25rem;
-  margin-left: 10px;
-  margin-right: 10px;
-  overflow-x: scroll;
-  height: 340px;
-}
-
-#workers .workers-cards::-webkit-scrollbar{
-  display: none;
-}
-
-#workers .arrow-next, .arrow-prev {
-  border-radius: 3px;
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 3px;
-  user-select: none;
-  -webkit-user-select: none;
-}
-#workers .arrow-next:hover, .arrow-prev:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-
 ::-webkit-input-placeholder {
   font-color: #686868;
 }
@@ -514,30 +376,4 @@ body, html {
 
 ::placeholder {
   font-color: #686868;
-}
-
-@media(max-width: 991px) {
-  #navigation {
-    display: none;
-  }
-  #content {
-    width: 100%;
-  }
-}
-
-@media(max-width: 1919px) {
-  #workers .workers-cards {
-    width: 717px;
-  }
-}
-@media(max-width: 1297px) {
-  #workers .workers-cards {
-    width: 260px;
-  }
-}
-
-@media(max-height: 860px) {
-  #workers .manager-card {
-    display: none;
-  }
 }

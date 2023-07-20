@@ -5,28 +5,33 @@
 {% endblock %}
 
 {% block content %}
-<div class="task_detail">
-  <h1>Задача</h1>
-  {% if not task.image == 'no_image.png' %}
-    <img src="/media/{{ task.image }}">
-  {% endif %}
-  <p> {{ task.name }} </p>
-  <p> {{ task.text }} </p>
-  <a href="/tasks/{{ task.id }}/del">Удалить</a>
-  <form method="POST">
-    {% csrf_token %}
-    <div class="task_submit">
-      {{ form.text }}
-    </div>
-    <button type="submit">Добавить</button>
-  </form>
-  {% for comment in comments %}
-    от {{ comment.by_user.last_name }} {{ comment.by_user.first_name }}      {{ comment.date }}
-    <br>
-    {{ comment.text }}
-    <br>
-    <br>
-  {% endfor %}
+{% if user.is_authenticated %}
+  <div class="task_detail">
+    <h1>Задача</h1>
+    {% if not task.image == 'no_image.png' %}
+      <img src="/media/{{ task.image }}">
+    {% endif %}
+    <p> {{ task.name }} </p>
+    <p> {{ task.text }} </p>
+    <p> от {{ task.by_user.get_full_name}}</p>
+    <a href="/tasks/{{ task.id }}/del">Удалить</a>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="task_submit">
+        {{ form.text }}
+      </div>
+      <button type="submit">Добавить</button>
+    </form>
+    {% for comment in comments %}
+      от {{ comment.by_user.get_full_name}} {{ comment.date }}
+      <br>
+      {{ comment.text }}
+      <br>
+      <br>
+    {% endfor %}
 
-</div>
+  </div>
+{% else %}
+    <p>Чтобы видеть информацию о задачах, <a href="/user/login">войдите в аккаунт</a>.</p>
+{% endif %}
 {% endblock %}

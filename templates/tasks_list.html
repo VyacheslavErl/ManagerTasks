@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated and user.company %}
     <ul id="task-list">
         {% for task in tasks %}
             <li class="task">
@@ -19,4 +20,9 @@
             </li>
         {% endfor %}
     </ul>
+{% elif user.is_authenticated %}
+    <p>Вы не состоите в компании</p>
+{% else %}
+    <p>Чтобы видеть информацию о задачах, <a href="/user/login">войдите в аккаунт</a>.</p>
+{% endif %}
 {% endblock %}

@@ -1,13 +1,34 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Profile
+    index
 {% endblock %}
 
 {% block content %}
-    <img src="/media/{{ user.image }}" class="nav-icon" alt="profile">
-    {{ user.last_name }} {{ user.first_name }}
-    {{ user.username }}
-    <a href="/user/logout">Выход</a>
+<div id="profile">
+    <div class="profile-basic">
+        <img src="/static/images/profile.png" alt="profile-image" >
+        <a href="/user/edit">редактировать</a>
+    </div>
+    <div class="profile-info">
+        <h2>{{ user.get_full_name}}</h2>
+        <a href="/companies">{{ user.company.name }}</a>
+        <ul class="profile-info-list">
+            <li class="profile-info-item">
+                <div class="parameter-name">Имя Пользователя:</div>
+                <div class="parameter-info">{{ user.username }}</div>
+            </li>
 
+            <li class="profile-info-item">
+                <div class="parameter-name">Дата создания аккаунта:</div>
+                <div class="parameter-info">{{ user.date_joined }}</div>
+            </li>
+        </ul>
+    </div>
+    <a href="/user/logout" class="logout-link">
+        <img src="/static/images/logout.png" alt="logout-image">
+        <span>Выход</span>
+    </a>
+
+</div>
 {% endblock %}

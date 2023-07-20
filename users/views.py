@@ -3,6 +3,8 @@ from django.contrib import auth
 from django.contrib.auth import logout
 
 from users.forms import UserLoginForm, UserRegistrationForm
+from companies.forms import JoinCompanyForm, CompanyModel
+from users.models import UserModel
 
 
 def login(request):
@@ -21,7 +23,7 @@ def login(request):
     return render(request, 'login.html', {'form': form})
 
 
-def registartion(request):
+def registration(request):
     if request.method == "POST":
         form = UserRegistrationForm(data=request.POST, files=request.FILES)
         if form.is_valid():
@@ -34,7 +36,18 @@ def registartion(request):
 
 
 def profile(request):
-    return render(request, 'profile.html')
+    if request.method == "POST":
+        form = JoinCompanyForm(data=request.POST)
+        if form.is_valid():
+            user = UserModel.objects.get(username=request.user.username)
+            user.company = CompanyModel.objects.get(code=form.code)
+            user.save()
+            return redirect('/companies')
+        else:
+            print(1)
+    else:
+        form = JoinCompanyForm()
+    return render(request, 'profile.html', {'form': form})
 
 
 def user_logout(request):

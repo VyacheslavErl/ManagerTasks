@@ -10,17 +10,19 @@ class TaskForm(ModelForm):
 
         widgets = {
             'name': TextInput(attrs={
-                'class': 'form-control'
+                'type': 'text',
+                'placeholder': 'Название'
             }),
             'text': TextInput(attrs={
-                'class': 'form-control'
+                'type': 'text',
+                'placeholder': 'Описание'
             }),
             'do_before': DateInput(attrs={
-                'class': 'form-control',
                 'type': 'date'
             }),
             'image': FileInput(attrs={
-                'class': 'form-control'
+                'type': 'file',
+                'accept': "image/*"
             }),
 
         }

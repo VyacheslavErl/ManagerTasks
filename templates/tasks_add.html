@@ -5,44 +5,33 @@
 {% endblock %}
 
 {% block content %}
-<div class="add_task">
-  <h1>Добавить задачу</h1>
-   <form method="POST", enctype="multipart/form-data">
-      {% csrf_token %}
-
-      <div class="task_submit">
-           <label>
-              {{ form.name.label }}
-           </label>
-         {{ form.name }}
-         {{ form.name.errors }}
-      </div>
-
-       <div class="task_submit">
-           <label>
-              {{ form.text.label }}
-           </label>
-         {{ form.text }}
-         {{ form.text.errors }}
-      </div>
-
-      <div class="task_submit">
-           <label>
-              {{ form.do_before.label }}
-           </label>
-         {{ form.do_before }}
-         {{ form.do_before.errors }}
-      </div>
-
-      <div class="task_submit">
-           <label>
-              {{ form.image.label }}
-           </label>
-         {{ form.image }}
-         {{ form.image.errors }}
-      </div>
-
-    <button class="btn btn-success" type="submit">Продолжить</button>
-   </form>
-</div>
+{% if user.is_authenticated and user.company %}
+  <form id="add-task" method="POST" action="" novalidate enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="page-title">Добавить задачу</div>
+    <div class="add-task-name" >
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+    <div class="add-task-text">
+      {{ form.text }}
+      {{ form.text.errors }}
+    </div>
+    <div class="add-task-image">
+      {{ form.image }}
+      {{ form.image.errors }}
+    </div>
+    <div class="add-task-date">
+      {{ form.do_before }}
+      {{ form.do_before.errors }}
+    </div>
+    <div class="add-task-submit">
+      <input type="submit" value="Добавить">
+    </div>
+  </form>
+{% elif user.is_authenticated %}
+    <p>Вы не состоите в компании</p>
+{% else %}
+    <p>Чтобы добавлять задачи, <a href="/user/login">войдите в аккаунт</a>.</p>
+{% endif %}
 {% endblock %}

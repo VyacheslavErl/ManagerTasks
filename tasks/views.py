@@ -2,20 +2,24 @@ from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 
 from tasks.models import TaskModel, CommentModel
+from users.models import UserModel
 from tasks.forms import TaskForm, CommentForm
 
+import calendar
 
 def tasks_list(request):
-    """ Вывод задач """
-    task_list = TaskModel.objects.all()
-    return render(request, 'tasks_list.html', {'tasks': task_list})
+    return render(request, 'tasks_list.html',
+                  {'tasks': TaskModel.objects.filter(company=request.user.company)
+                  if request.user.is_authenticated and request.user.company else None})
 
 
 def add_task(request):
-    """ Добавление задач """
     if request.method == "POST":
         form = TaskForm(request.POST, request.FILES)
         if form.is_valid():
+            form = form.save(commit=False)
+            form.by_user = request.user
+            form.company = request.user.company
             form.save()
             return redirect('/tasks')
     else:
@@ -24,10 +28,8 @@ def add_task(request):
 
 
 def task_info(request, task_id):
-    """ Информация  задачи"""
     if request.method == "POST":
         form = CommentForm(data=request.POST)
-        print(1)
         if form.is_valid():
             form = form.save(commit=False)
             form.by_user = request.user
@@ -43,9 +45,13 @@ def task_info(request, task_id):
 
 
 def task_del(request, task_id):
-    """ удаение задач """
     try:
         TaskModel.objects.get(id=task_id).delete()
     except ObjectDoesNotExist:
         pass
     return redirect("/tasks")
+
+
+def calendar_main(request):
+    cal = calendar.HTMLCalendar()
+    return render(request, 'calendar.html', {'cal': cal})
