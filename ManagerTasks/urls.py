@@ -26,8 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('tasks/', include('tasks.urls')),
-    path('user/', include('users.urls'))
+    path('user/', include('users.urls')),
+    path('companies/', include('companies.urls'))
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# 1637 1024
