@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Manager Task
+{% endblock %}
+
+{% block content %}
+    <ul id="task-list">
+        {% for task in tasks %}
+            <li class="task">
+                <form action="/tasks/info/{{task.id}}">
+                    <button type="submit">
+                        <div class="task-image"><img src="/static/images/profile_icon.png" alt="profile image"></div>
+                        <div class="task-name">{{ task.name }}</div>
+                        <div class="task-text">{{ task.text }}</div>
+                        <div class="task-date">{{ task.do_before }}</div>
+                    </button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form id="add-task-button" action="/tasks/add" method="GET">
+        <button>+</button>
+    </form>
+{% endblock %}

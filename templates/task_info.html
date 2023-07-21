@@ -1,18 +1,63 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Задача
+  {{ task.name }}
 {% endblock %}
 
 {% block content %}
-<div class="task_detail">
-  <h1>{{ task["name"] }}</h1>
-  <p> {{ task["text"] }} </p>
-  {% if date.today() > task["date"] %}
-    <p>время вышло (нужно было сделать до {{ task["date"] }})</p>
-  {% else %}
-    <p> Сделать до {{ task["date"] }} </p>
-  {% endif %}
-  <a href="/task/{{ task.id }}/del">Удалить</a>
-</div>
+{% if user.is_authenticated %}
+  <div id="task-info">
+    <div class="task-info-top">
+      <div class="page-title">
+        {{ task.name }}
+      </div>
+      <div class="task-info-created-by">
+        от {{ task.by_user.get_full_name}}
+      </div>
+      <div class="task-info-date">
+        05.05.2023 <!-- Здесь дата создания -->
+      </div>
+      <div class="task-info-edit">
+        <a>
+            <img class="task-info-edit-img">
+        </a>
+      </div>
+    </div>
+    <div class="task-info-middle">
+      <div class="task-info-text">
+        {{ task.text }}
+      </div>
+      <div class="task-info-do-before">
+        <span>До</span>
+        13.07.2023 <!-- Здесь конечная дата -->
+      </div>
+    </div>
+    <div class="task-info-comments">
+        <div class="add-comment">
+            <textarea class="add-comment-field" placeholder="Добавить комментарий..."></textarea>
+            <button class="add-comment-submitBtn" type="submit"></button>
+        </div>
+        <ul class="comments">
+          {% for comment in comments %}
+            <li class="comment">
+                <div class="comment-image">
+                  <img>
+                </div>
+                <div class="comment-user-name">
+                  {{ comment.by_user.get_full_name}}
+                </div>
+                <div class="task-info-created-at">
+                  {{ comment.date }}
+                </div>
+                <div class="comment-text">
+                  {{ comment.text }}
+                </div>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+{% else %}
+  <p>Чтобы видеть информацию о задачах, <a href="/user/login">войдите в аккаунт</a>.</p>
+{% endif %}
 {% endblock %}

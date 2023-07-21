@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Title
+{% endblock %}
+
+{% block content %}
+<form id="add-task" method="POST" action="" novalidate enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="page-title">Добавить задачу</div>
+  <div class="add-task-name" >
+    <input type="text" placeholder="Название" maxlength="22" name="name"></input>
+    <span class="alert">ШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШ</span>
+  </div>
+  <div class="add-task-text">
+    <textarea type="text" placeholder="Описание" name="text"></textarea>
+    <span class="alert">ШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШ</span> <!--Место под сообщение об ошибке в поле описания -->
+  </div>
+  <div class="add-task-image">
+    <input type="file" accept="image/*" name="image">
+  </div>
+  <div class="add-task-date">
+    <input type="date" placeholder="" name="do_before">
+    <span class="alert-date">ШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШ</span> <!--Место под сообщение об ошибке в поле даты -->
+  </div>
+  <div class="add-task-submit">
+    <input type="submit" value="Добавить">
+  </div>
+</form>
+<script src="/static/js/alert.js"></script>
+{% endblock %}

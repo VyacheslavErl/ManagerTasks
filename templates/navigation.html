@@ -1,44 +1,46 @@
 {% block content %}
 <ul id="navbar">
-    <li class="app-title">
-        <div class="app-title">
-            <img src="/static/images/logo.png" class="app-icon" alt="profile">
-            Manager Tasks
-        </div>
+    <li class="nav-app-title">
+        <form action="/" method="GET">
+            <button class="app-title">
+                <img src="/static/images/logo.png" class="app-icon">
+                Manager Tasks
+            </button>
+        </form>
     </li>
     <li>
-        <form action="/" method="GET">
+        <form action="/tasks" method="GET">
                 <button
-                    {% if request.path == '/' or '/task/' in request.path %}
+                    {% if request.path == '/tasks/' %}
                         class="active"
                     {% endif %}
                     type="submit">
-                    <img src="/static/images/main.png" class="nav-icon" alt="tasks">
+                    <img src="/static/images/main.png" class="nav-icon">
                     Задачи
                 </button>
         </form>
     </li>
     <li>
-        <form action="/add_task" method="GET">
+        <form action="/tasks/calendar" method="GET">
                 <button
-                    {% if request.path == '/add_task' %}
+                    {% if request.path == '/calender' %}
                         class="active"
                     {% endif %}
-                     type="submit">
-                    <img src="/static/images/tasks.png" class="nav-icon" alt="tasks">
-                    Добавить задачу
+                    type="submit">
+                    <img src="/static/images/calendar.png" class="nav-icon">
+                    Календарь
                 </button>
         </form>
     </li>
     <li>
-        <form action="/chat" method="GET">
+        <form action="/companies" method="GET">
                 <button
-                    {% if request.path == '/chat' %}
-                        class="active"
+                    {% if request.path == '/companies' %}
+                        class=""
                     {% endif %}
                     type="submit">
-                    <img src="/static/images/chat.png" class="nav-icon" alt="tasks">
-                    Чат
+                    <img src="/static/images/companies.png" class="nav-icon">
+                    Организации
                 </button>
         </form>
     </li>
@@ -49,20 +51,20 @@
                         class=""
                     {% endif %}
                     type="submit">
-                    <img src="/static/images/workers.png" class="nav-icon" alt="tasks">
+                    <img src="/static/images/workers.png" class="nav-icon">
                     Соотрудники
                 </button>
         </form>
     </li>
     <li>
-        <form action="/profile" method="GET">
+        <form action="/user/profile" method="GET">
                 <button
-                    {% if request.path == '/profile' %}
+                    {% if request.path == '/user/profile' %}
                         class="active"
                     {% endif %}
                     type="submit">
-                    <img src="/static/images/profile.png" class="nav-icon" alt="profile">
-                    {{ login }}
+                    <img src="/static/images/profile.png" class="nav-icon">
+                    Albert Tiria
                 </button>
         </form>
     </li>
