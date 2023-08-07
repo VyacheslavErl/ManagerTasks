@@ -6,6 +6,36 @@
 
 {% block content %}
     <ul id="task-list">
+        <li class="task">
+            <form action="/tasks/info/{{task.id}}">
+                <button type="submit">
+                    <div class="task-image"><img src="/static/images/profile_icon.png" alt="profile image"></div>
+                    <div class="task-name">Lorem, ipsum dolor.</div>
+                    <div class="task-text">Lorem ipsum dolor sit amet.</div>
+                    <div class="task-date">20.01.2023</div>
+                </button>
+            </form>
+        </li>
+        <li class="task">
+            <form action="/tasks/info/{{task.id}}">
+                <button type="submit">
+                    <div class="task-image"><img src="/static/images/profile_icon.png" alt="profile image"></div>
+                    <div class="task-name">Lorem, ipsum dolor.</div>
+                    <div class="task-text">Lorem ipsum dolor sit amet.</div>
+                    <div class="task-date">20.01.2023</div>
+                </button>
+            </form>
+        </li>
+        <li class="task">
+            <form action="/tasks/info/{{task.id}}">
+                <button type="submit">
+                    <div class="task-image"><img src="/static/images/profile_icon.png" alt="profile image"></div>
+                    <div class="task-name">Lorem, ipsum dolor.</div>
+                    <div class="task-text">Lorem ipsum dolor sit amet.</div>
+                    <div class="task-date">20.01.2023</div>
+                </button>
+            </form>
+        </li>
         {% for task in tasks %}
             <li class="task">
                 <form action="/tasks/info/{{task.id}}">
@@ -19,7 +49,6 @@
             </li>
         {% endfor %}
     </ul>
-    <form id="add-task-button" action="/tasks/add" method="GET">
-        <button>+</button>
+    <a class="add-task-btn" href="/tasks/add">+</a>
     </form>
 {% endblock %}

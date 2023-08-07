@@ -2,18 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/static.css">
+    <link rel="stylesheet" href="/static/css/workspace.css">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="navigation">
-            {% include "navigation.html" %}
-        </div>
-        <div id="content">
-                {% block content %}{% endblock content %}
-            </div>
-        </div>
+    <script
+  src="https://code.jquery.com/jquery-3.7.0.js"
+  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+  crossorigin="anonymous"></script>
+    <div id="navigation">
+        {% include "navigation.html" %}
+    </div>
+    <div id="content">
+            {% block content %}{% endblock content %}
     </div>
 </body>
 </html>
