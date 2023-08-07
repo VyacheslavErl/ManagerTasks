@@ -1,20 +1,33 @@
-$("#add-task").submit(function(event) {
-  var nameInput = $("input[name='name']").eq(0);
-  var textInput = $("input[name='text']").eq(0);
-  var dateInput = $("input[name='do_before']").eq(0);
+const form = $('.form');
 
-  if (nameInput.val() === "") {
+function showAlerts (event) {
+  var form = $(event.currentTarget);
+  var alerts = form.find('.alert')
+  var inputs = form.find('textarea, input')
+  var emptyInputs = inputs.filter(function() {
+    return $(this).val() == "";
+  });
+  if (alerts.length === 1 && inputs.length != alerts.length && emptyInputs.length > 0) {
     event.preventDefault();
-    nameInput.next().css("display", "block");
+    alerts.show();
   }
+  else {
+    inputs.each(function(index) {
+      if ($(this).val() === "") {
+        event.preventDefault();
+        if (alerts.length == 1) {
+          alerts.show();
+        }
+        else {
+          console.log(index, inputs.eq(index), alerts.eq(index))
+          alerts.eq(index-1).show();
+        }
+      }
+      else {
+        alerts.eq(index).hide()
+      }
+    });
+  }
+}
 
-  if (textInput.val() === "") {
-    event.preventDefault();
-    textInput.next().css("display", "block");
-  }
-
-  if (dateInput.val() === "") {
-    event.preventDefault();
-    dateInput.next().css("display", "block");
-  }
-});
+form.on('submit', showAlerts);
