@@ -2,9 +2,8 @@
 Simple ToDo for managers
 ***
 Manager tasks helps managers improve the efficiency of their staff. 
-With Manager tasks managers can create goals and monitor their progress, and the program includes a chat and calendar function. 
+With Manager Tasks managers can create goals and monitor their progress, and the program includes a chat and calendar function. 
 This tool is designed to optimize workflow and increase team productivity.
-Development is performed by an international team.
 ***
 Frontend
 * [X] Новый интерфейс добавления задач
